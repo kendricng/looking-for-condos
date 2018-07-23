@@ -1,0 +1,37 @@
+---
+layout: default
+---
+<div class = 'mat'>
+  <div class = 'mat__inner px-2'>
+    <div class = 'text-center'>
+      <h1>Hello, Welcome</h1>
+      <p>Hmm, this is how it looks like. Did I get it right?</p>
+    </div>
+    <!-- scroll button -->
+    <div class = 'text-center'>
+      <a href = '' class = 'button'>Get Started</a>
+    </div>
+    <a class = 'round' href = '#deals'><div class = 'angle'></div></a>
+  </div>
+</div>
+<article class = 'container container__flex px-2 mx-auto' itemscope itemtype = 'http://schema.org/BlogPosting'>
+  <div class = 'col-3'>
+    {% include subscribe/sidebar-optin.html %}
+  </div>
+  <div class = 'col-8'>
+    <h1 itemprop="name headline">{{ page.title }}</h1>
+    <div>
+      <p class="mb-2 py-1 bold h4"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time></p>
+    </div>
+    <div class = 'prose' itemprop = 'articleBody'>
+      {{ content }}
+    </div>
+    {% include subscribe/optin.html %}
+    <div class = 'dark'>
+      {% include comments.html %}
+    </div>
+    <div class="container mx-auto px-2 py-2 clearfix">
+      {% include previous-next_has-categories.html %}
+    </div>    
+  </div>
+</article>

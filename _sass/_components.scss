@@ -1,0 +1,283 @@
+// Styling markdown output
+
+// Code formatting
+pre {
+    border-left: $spacer-1 solid $color-border;
+    margin: $spacer-3 0;
+    padding-left: 16px;
+    width: (9 / 12 * 100%); // matches col-9
+    overflow-x: auto;
+}
+
+code {
+    color: $color-code;
+    font-size: $body-font-size;
+    padding: 1px 4px;
+}
+
+
+.prose {
+
+  p, ol, ul {
+    font-size: $prose-font-size;
+    margin-bottom: 1em;
+    width: 100%;
+
+    // @media (min-width: $breakpoint-lg) {
+    //   width: (10 / 12 * 100%); // matches col-10
+    // }
+
+  }
+  p{
+    padding:10px 0;
+  }
+
+  ul, ol {
+    padding-left: 40px;
+  }
+
+  li {
+    margin-bottom: 0.5em;
+
+    ul li, ol li {
+      margin-bottom: 0;
+    }
+  }
+
+  img {
+    max-width: 100%;
+  }
+
+  blockquote {
+    line-height: 1.375;
+    padding-left: 20px;
+    margin: 40px 0 40px;
+    border-left: $spacer-1 solid $mute;
+    font-style: italic;
+
+    p {
+      font-size: 24px;
+    }
+
+    @media (min-width: $breakpoint-lg) {
+      padding-left: $spacer-3;
+      margin: $spacer-4 0 $spacer-4;
+      max-width: (11 / 10 * 100%);
+
+      p {
+        font-size: 1.33rem;
+      }
+
+    }
+
+  }
+
+  hr {
+    color: $color-body-text;
+    border-style: solid;
+    border-width: thin;
+    margin-top: 0.5em;
+    margin-bottom: 0.5em;
+  }
+
+  dt {
+    font-weight: bold;
+    font-style: italic;
+    line-height: 1.25;
+  }
+
+  dd {
+    font-style: italic;
+    margin-bottom: 0.5em;
+  }
+
+  // Markdown tables
+  table {
+    border-collapse: collapse;
+    display: block;
+    width: 100%;
+    margin-bottom: 1.5em;
+    overflow: auto;
+    // For Firefox to horizontally scroll wider tables.
+    word-break: normal;
+    word-break: keep-all;
+
+    th {
+      font-weight: bold;
+      text-align: left;
+    }
+
+    th,
+    td {
+      padding: $spacer-2 $spacer-3 $spacer-2 2px;
+      border-top: 1px solid $color-body-text;
+      border-bottom: 1px solid $color-body-text;
+    }
+
+    tr {
+      background-color: #fff;
+      border-top: 1px solid $color-body-text;
+    }
+
+    tr th {
+      border-top: 2px solid $color-body-text;
+      border-bottom: 2px solid $color-body-text;
+    }
+  }
+
+}
+
+.header{
+  position: fixed;
+  width: 100%;
+  z-index: 9;
+  &-inner{
+    max-width: 1024px;
+    margin: 0 auto;
+  }
+}
+
+.form{
+  position: relative;
+  width: 360px;
+  max-width: 100%;
+  margin:30px auto;
+  &__input{
+    width:100%;
+    height: 54px;
+    padding: 5px 20px;
+    font-size: 1.15rem;
+    border-radius: 30px;
+    border: 1px solid $theme-color;
+    outline: none;
+    &:hover, &:focus{
+      background: $light;
+      color: $dark;
+      border: 1px solid rgba(83,83,83,0.2);
+      box-shadow: 0 2px 14px 0 rgba(83,83,83,0.2); // input fields
+    }
+  }
+  &__submit{
+    position: absolute;
+    top:5px;
+    right:5px;
+    @include button;
+  }
+}
+
+.social {
+  display: flex;
+  max-width: 180px;
+  justify-content: space-between;
+  font-size: 1.25rem;
+  padding: 15px 0;
+  margin: 0 auto;
+  &-profile{
+    background: darken($mute, 2%);
+    height: 40px;
+    width: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 50%;
+    color: #fff;
+  }
+}
+
+.button{
+  &,&__light,&__simple{
+    @include button;
+    margin: 25px auto;
+  }
+  &__light{
+    background: darken($mute, 7.5%);
+    color: $dark;
+  }
+  &__simple{
+    border-radius: 5px;
+    display: inline-flex;
+    padding-right: 5px;
+  }
+  &__small{
+    min-width: 120px;
+  }
+}
+.instagram{
+  background: #fb3958;
+}
+.facebook{
+  background: #3b5998;
+}
+.twitter{
+  background: #4099FF;
+}
+.github{
+	background-color:#333;
+}
+
+// welcome mat
+.mat{
+  @media screen and (max-width: 567px) {
+    display: none;
+  }
+  width: 100%;
+  height: 100vh;
+  background: $mute;
+  position: relative;
+  margin-bottom: 50px;
+  overflow: hidden;
+  color: $dark;
+  p{
+    color: lighten($dark, 5%);
+  }
+
+  &__inner{
+    height: 100vh;
+    background: transparent;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+}
+
+// scroll button
+.angle{
+  position: relative;
+  animation: pulse 1s ease-out alternate infinite;
+  &:after,
+  &:before{
+    content: '';
+    position: absolute;
+    padding: 1px;
+    background: linear-gradient(to right, $light 50%, transparent 50%);
+    top: 0;
+    width: 1rem;
+    left: 0;
+  }
+  &:after{
+    transform: rotate(45deg);
+  }
+  &:before{
+    transform: rotate(-45deg);
+  }
+}
+
+.round{
+  background: $theme-color;
+  padding:25px;
+  border-radius: 50%;
+  box-shadow: 0 4px 8px rgba(0,0,0,.1);
+  display: inline-flex;
+  margin:20px auto;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+  &:hover{
+    opacity: 0.8;
+  }
+}
+
+.landing{
+  margin: 0 auto;
+  max-width: 640px;
+}

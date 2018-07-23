@@ -1,0 +1,22 @@
+---
+layout: default
+---
+{% include subscribe/mat.html %}
+<article class = 'container container__flex px-2 mx-auto' itemscope itemtype = 'http://schema.org/BlogPosting'>
+  <div class = 'col-3'>
+    {% include subscribe/sidebar-optin.html %}
+  </div>
+  <div class = 'col-8'>
+    <h1 itemprop="name headline">{{ page.title }}</h1>
+    <div>
+      <p class="mb-2 py-1 bold h4"><time datetime="{{ page.date | date_to_xmlschema }}" itemprop="datePublished">{{ page.date | date: "%b %-d, %Y" }}</time></p>
+    </div>
+    <div class = 'prose' itemprop = 'articleBody'>
+      {{ content }}
+    </div>
+    {% include subscribe/optin.html %}
+    <div class = 'dark'>
+      {% include comments.html %}
+    </div>
+  </div>
+</article>

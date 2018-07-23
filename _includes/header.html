@@ -1,0 +1,18 @@
+<div class = 'menu'>
+  <div class = 'menu__inner'>
+    <a class="align-middle link-primary text-accent" href="{{ site.baseurl }}/">{{ site.title }}</a>
+    <div class = 'menu__toggle'>&#9776;</div>
+  </div>
+  <div class = 'menu__overlay'>
+    <div class = 'menu__drop'>
+      {% for item in site.data.menu %}
+        {% if forloop.index == 1 %}
+          {% assign link = '/' %}
+        {% else %}
+          {% assign link = item | slugify | downcase | prepend: '/' | append: '/' %}
+        {% endif %}
+        <a href = '{{ link }}' class = 'menu__item {% if page.permalink == link %} menu__item--active {% endif %}'>{{ item }}</a>
+      {% endfor %}
+    </div>
+  </div>
+</div>

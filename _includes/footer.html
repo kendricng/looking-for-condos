@@ -1,0 +1,17 @@
+<div class = 'container mx-auto px-2 py-3'>
+  <div class = 'social'>
+    {% for item in site.social %}
+      <span class = 'social-profile {{item.profile }}'>
+        <a href = '{{ item.url }}' target = '_blank'><i class = '{{ item.icon}}'></i></a>
+      </span>
+    {% endfor %}
+  </div>
+  <p class = 'text-center'>
+    &copy; <span class = 'current__year'></span>
+    <a href = '/' target = '_blank' class = 'text-accent'>{{ site.title }}</a>
+  </p>
+</div>
+
+<script defer src="https://use.fontawesome.com/releases/v5.0.9/js/all.js" 
+integrity="sha384-8iPTk2s/jMVj81dnzb/iFR2sdA7u06vHJyyLlAd4snFpCl/SnyUjRrbdJsw1pGIl" crossorigin="anonymous"></script>
+<script src = '/assets/index.js'></script>

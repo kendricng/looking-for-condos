@@ -1,0 +1,54 @@
+title: The Kendric Blog
+email: ngkendric@gmail.com
+
+description: Welcome to the personal blog of Mr Kendric Ng. This is where he jots down his
+  thoughts, tests concepts and discusses ideas with like-minded people. Enjoy at
+  your own risk.
+
+baseurl: '' # the subpath of your site, e.g. /blog
+
+url: https://www.kendric.blog
+twitter_username: kendricng
+github_username:  kenterminator
+
+disqus:
+  shortname: 'kendric-blog'
+
+font-url: https://fonts.googleapis.com/css?family=Maven+Pro|Open+Sans:400,400i,700,700i
+
+# Build settings
+markdown: kramdown
+timezone: Asia/Hong_Kong
+exclude: ['Gemfile', 'Gemfile.lock', '*.sublime-*', 'lib', 'vendor', 'Rakefile', 's3_website.yml']
+relative_permalinks: false
+author: Kendric Ng
+plugins:
+  - jekyll-feed
+sass:
+  style: compressed
+
+# social profiles
+social:
+  - profile: twitter
+    url: 'https://twitter.com/kendricng'
+    icon: 'fab fa-twitter'
+  - profile: github
+    url: 'https://github.com/kenterminator'
+    icon: 'fab fa-github'
+
+defaults:
+  -
+    scope:
+      path: '_posts'
+      type: 'posts'
+    values:
+      layout: 'post'
+      permalink: /:title/
+      optin: 
+        button: 'Optin Now'
+        description: We don't send junk emails; that's a promise.
+        heading: Subscribe to updates
+        link:
+          url: '/blog/'
+          text: 'All Articles'
+          type: null

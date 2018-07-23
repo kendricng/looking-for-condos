@@ -1,0 +1,12 @@
+<div class = 'opt__in text-center'>
+  {% assign opt = page.optin %}
+  {% assign link = opt.link %}
+  <h2 class = 'center'>{{ opt.heading }}</h2>
+  <p><em>{{ opt.description }}</em></p>
+  <div class = 'button__light button__opt'>{{ opt.button }}</div>
+  <div class = 'divider'></div>
+  <a href = '{{ link.url }}'
+   class = 'button button__light'
+   target = '_blank' {% if link.type == 'download' %}download{% endif %}>{{ link.text }}</a>
+</div>
+{% include subscribe/mailchimp.md %}  

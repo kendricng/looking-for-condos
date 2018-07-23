@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    {% include head.html %}
+  </head>
+  <body>
+    <script>
+      fbq('track', 'ViewContent', {
+        value: 10,
+        currency: 'USD',
+      });
+    </script>
+    {% if page.landing-page != true %}
+    <nav>
+      {% include header.html %}
+    </nav>
+    {% endif %}
+    <main>
+      {{ content }}
+    </main>
+    {% if page.landing-page != true %}
+    <footer>
+      {% include footer.html %}
+    </footer>
+    {% endif %}
+  </body>
+</html>
