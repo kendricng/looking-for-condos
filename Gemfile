@@ -29,7 +29,7 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "wdm", "~> 0.1.0" if Gem.win_platform?
 
 # Add Rake to deploy Jekyll onto the site
-gem 'rake', '~> 11.3.0'
+gem 'rake', '~> 12.3.3'
 
 # Run on s3
 gem 's3_website', '~> 2.16.0'
